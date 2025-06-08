@@ -44,7 +44,7 @@ Diagrammaufbau:
 - Sortierung und Filterung auf die 5 umsatzstärksten Länder
 - Visualisierung: gestapeltes Balkendiagramm
 
-📊 Diagrammaufbau:
+Diagrammaufbau:
 - X-Achse: Umsatz (SUM)
 - Y-Achse: `BillingCountry` (Rechnungen_Länder genannt)
 - Filter: TopN 5 Länder nach Umsatz
