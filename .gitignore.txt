@@ -1,0 +1,7 @@
+# Power BI temporäre Dateien 
+*.pbix~ 
+*.tmp
+
+# PostgreSQL Logs / Backups 
+*.log
+*.bak
