@@ -32,7 +32,7 @@ Diagrammaufbau:
 - Y-Achse: Umsatz pro Monat (SUM)
 - Small Multiple: Jahr
 
-![Umsatzdiagramm – Small Multiples](./screenshots/small_multiples_umsatz_pro_monat_und_jahr.png)
+![Umsatzdiagramm – Small Multiples](./screenshots/small_multiples_umsatz_pro_monat_und_jahr.PNG)
 
 ---
 
@@ -48,7 +48,7 @@ Diagrammaufbau:
 - Y-Achse: `BillingCountry` (Rechnungen_Länder genannt)
 - Filter: TopN 5 Länder nach Umsatz
 
-![Top 5 Länder](./screenshots/top5laender.png)
+![Top 5 Länder](./screenshots/top5laender.PNG)
 
 ---
 
