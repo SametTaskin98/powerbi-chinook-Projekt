@@ -13,8 +13,9 @@ Die Daten stammen aus einer PostgreSQL-Datenbank (ursprünglich aus der Open Sou
 
 ## Use Cases & Fragestellungen
 
-1. ** Wie entwickeln sich die Umsätze über die Monate und Jahre hinweg?**
-2. ** Welche Länder generieren den höchsten Umsatz (Top 5)?**
+1. **Wie entwickeln sich die Umsätze über die Monate und Jahre hinweg?**
+2. **Welche Länder generieren den höchsten Umsatz (Top 5)?**
+3. **siehe unter Erweiterungsideen**
 
 ---
 
@@ -94,6 +95,9 @@ Jahr = YEAR('MonatsUmsatz'[JahrMonat])
 
 ## Erweiterungsideen
 
+- Datenbank selber erweitern mit simulierten Rückgabequoten, um folgende Fragen zu untersuchen:
+    - "Produkt X wird zwar oft gekauft, aber mit 20 % Rückgabequote."
+    - "Wenn der Kunde Artikel A kauft, hat er eine 75 %-Wahrscheinlichkeit, Artikel B auch zu kaufen." 
 - Umsatzanalyse nach Künstler, Genre oder Album
 - Durchschnittlicher Warenkorbwert pro Kunde oder Land
 - Wachstum zum Vormonat/ Quartal
