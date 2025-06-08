@@ -82,7 +82,7 @@ Jahr = YEAR('MonatsUmsatz'[JahrMonat])
   - LänderUmsatz
 - Erste SQL-Auswertungen zur Datenvalidierung und Exploration:
   - Dabei wurden einfache Aggregationen mittels COUNT, GROUP BY und DISTINCT durchgeführt, um z. B. die Kundenzahl, Länderverteilung und Umsatzverteilung zu prüfen.
-  - siehe 
+  - siehe  [erste_abfragen.sql](./sql/countabfragen_mit_groupby_distinct.sql)
 
 ## Learnings
 
