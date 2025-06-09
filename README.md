@@ -120,7 +120,7 @@ Jahr = YEAR('MonatsUmsatz'[JahrMonat])
 
 ## Autor
 
-- Name: [Samet Taskin]
-- Studium: Wirtschaftsinformatik (B.Sc.)
-- Zielrolle: Business Analyst, Data Analyst
-- Technologien: Power BI, DAX, PostgreSQL
+- **Name:** [Samet Taskin]
+- **Studium:** Wirtschaftsinformatik (B.Sc.)
+- **Karriereziel:** Einstieg in den Bereich Business Intelligence und Datenanalyse
+- **Technologien:** Power BI, DAX, PostgreSQL
