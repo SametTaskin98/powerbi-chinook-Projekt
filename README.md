@@ -67,7 +67,7 @@ Diagrammaufbau:
 - Legende: `last_name` von public employee (Mitarbeiter_Name genannt)
 - Filter: TopN 5 Genres nach Umsatz
 
-![Top Mitarbeiter Umsätze für Top Genres](./mitarbeiter_umsatz_top5_genres.PNG)
+![Top Mitarbeiter Umsätze für Top Genres](./screenshots/mitarbeiter_umsatz_top5_genres.PNG)
 
 ---
 
