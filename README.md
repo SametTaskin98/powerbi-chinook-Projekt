@@ -56,10 +56,14 @@ Diagrammaufbau:
 ## DAX-Funktionen
 
 ```dax
--- 1. JahrMonat aus Rechnungsdatum erzeugen
+
+-- 1. Neue Tabelle mit nur 2 Spalten Land und Gesamtumsatz erstellen
+LänderUmsatz = SUMMARIZE('public invoice', 'public invoice'[billing_country],"Umsatz", SUM('public invoice'[total]))
+
+-- 2. JahrMonat aus Rechnungsdatum erzeugen
 JahrMonat = DATE(YEAR('public invoice'[invoice_date]), MONTH('public invoice'[invoice_date]), 1)
 
--- 2. Aggregation: Umsatz pro Monat
+-- 3.. Aggregation: Umsatz pro Monat
 MonatsUmsatz = 
 SUMMARIZE(
     'public invoice', 
@@ -67,7 +71,7 @@ SUMMARIZE(
     "Umsatz", SUM('public invoice'[total])
 )
 
--- 3. Neue Jahr-Spalte für Gruppierung hinzufügen
+-- 4. Neue Jahr-Spalte für Gruppierung hinzufügen
 Jahr = YEAR('MonatsUmsatz'[JahrMonat])
 ```
 
@@ -95,13 +99,24 @@ Jahr = YEAR('MonatsUmsatz'[JahrMonat])
 
 ## Erweiterungsideen
 
-- Datenbank selber erweitern mit simulierten Rückgabequoten, um folgende Fragen zu untersuchen:
-    - "Produkt X wird zwar oft gekauft, aber mit 20 % Rückgabequote."
-    - "Wenn der Kunde Artikel A kauft, hat er eine 75 %-Wahrscheinlichkeit, Artikel B auch zu kaufen." 
+- Vetriebsanalyse nach Mitarbeiter + Genrespezifisch
+    - "„Welche Sales-Mitarbeiter haben den meisten Umsatz betreut?“ 
+    - „Welcher Mitarbeiter verkauft welche Genres am erfolgreichsten?“
+- Top-Produkte je Genre
+    - „Was sind die meistverkauften Tracks im Genre Pop?“
 - Umsatzanalyse nach Künstler, Genre oder Album
+- Datenbank selber erweitern mit simulierten Rückgabequoten, um folgende Fragen/Aussagen zu untersuchen:
+    - "Wie hoch ist die Rückgabequote pro Produkt?" 
+    - "Produkt X wird zwar oft gekauft, aber mit 20 % Rückgabequote."
+    - "Wenn der Kunde Artikel A kauft, hat er eine 75 %-Wahrscheinlichkeit, Artikel B auch zu kaufen."
+    -> Cross Selling: "Käufer von Jazz kaufen oft auch Blues. Wie können wir das nutzen?“  
+- Kundenwertanalyse
+    - „Welche Kunden haben den höchsten Gesamtumsatz generiert?“ -> Clustering nach Ländern
+- Geografische Analyse
+    - Kartenvisualisierung mit Power BI (bubbles/ heatmap) -> Woher kommen unsere Kunden überhaupt? 
 - Durchschnittlicher Warenkorbwert pro Kunde oder Land
 - Wachstum zum Vormonat/ Quartal
-- Dynamische Filter 
+
 
 ## Autor
 
