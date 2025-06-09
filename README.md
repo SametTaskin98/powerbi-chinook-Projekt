@@ -59,7 +59,6 @@ Diagrammaufbau:
 
 - Prüfung ob alle notwendigen JOIN Verbindungen existieren (Modellansicht)
 - SUMX erstellt zur Berechnung von (Preis * Anzahl) um Mitarbeiter Verkäufe pro Genre zu erhalten
-- Diagramm kann für 3.1 und 3.2 genutzt werden
 - Visualisierung: Balkendiagramm (gruppiert)
 
 Diagrammaufbau:
