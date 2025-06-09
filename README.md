@@ -5,7 +5,7 @@
 Das Projekt dient ausschließlich zu Übungszwecken und wurde am 07.06.2025 neu gestartet. Fragestellungen und Visualisierungen werden im Laufe der Zeit erweitert.
 
 In diesem Projekt werden Rechnungs- und Kundendaten aus der Chinook-Probedatenbank analysiert. 
-Ziel ist es, typische Aufgaben eines Business Analysts umzusetzen darunter die Umsatzentwicklung über Zeit sowie die Ermittlung der Top-Märkte nach Umsatz. 
+Ziel dieses Projekts ist es, typische Aufgaben eines Business Intelligence Analysts bzw. Business Analysts umzusetzen, darunter die Analyse der Umsatzentwicklung über die Zeit sowie die Identifikation der umsatzstärksten Märkte.
 Die Daten stammen aus einer PostgreSQL-Datenbank (ursprünglich aus der Open Source chinook-database)) und wurden über Power BI ausgewertet und visualisiert.
 
 
