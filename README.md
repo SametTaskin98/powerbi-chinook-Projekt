@@ -15,7 +15,9 @@ Die Daten stammen aus einer PostgreSQL-Datenbank (ursprünglich aus der Open Sou
 
 1. **Wie entwickeln sich die Umsätze über die Monate und Jahre hinweg?**
 2. **Welche Länder generieren den höchsten Umsatz (Top 5)?**
-3. **siehe unter Erweiterungsideen**
+3.1 **Welche Sales-Mitarbeiter haben den meisten Umsatz betreut?** 
+3.2 **Welcher Mitarbeiter verkauft welche Genres am erfolgreichsten?**
+4. **siehe unter Erweiterungsideen**
 
 ---
 
@@ -23,33 +25,51 @@ Die Daten stammen aus einer PostgreSQL-Datenbank (ursprünglich aus der Open Sou
 
 ### 1. Umsatzentwicklung über Zeit (Small Multiples)
 
+- Erstellung einer neuen Tabelle MonatsUmsatz
 - Erstellung einer neuen Datumsspalte `JahrMonat` im Datumsformat 
 - Aggregation des Umsatzes pro Monat
 - Erstellung einer `Jahr`-Spalte zur Gruppierung
 - Visualisierung: Liniendiagramm mit Small Multiples (1 Diagramm pro Jahr)
 
 Diagrammaufbau:
-- X-Achse: `JahrMonat`
-- Y-Achse: Umsatz pro Monat (SUM)
+- X-Achse: `JahrMonat` von Monatsumsatz
+- Y-Achse: `Umsatz` von Monatsumsatz
 - Small Multiple: Jahr
 
-![Umsatzdiagramm – Small Multiples](./screenshots/small_multiples_umsatz_pro_monat_und_jahr.PNG)
+![Umsatzsvergleich per Small Multiples](./screenshots/small_multiples_umsatz_pro_monat_und_jahr.PNG)
 
 ---
 
 ### 2. Top 5 Länder nach Umsatz
 
-- Gruppierung der Rechnungsbeträge nach `Billing_Country`
+- Gruppierung der Rechnungsbeträge nach `billing_Country`
 - Aggregation der Summe von `total`
 - Sortierung und Filterung auf die 5 umsatzstärksten Länder
 - Visualisierung: gestapeltes Balkendiagramm
 
 Diagrammaufbau:
-- X-Achse: Umsatz (SUM)
-- Y-Achse: `BillingCountry` (Rechnungen_Länder genannt)
+- X-Achse: `total` von public invoice (Gesamtsumme genannt)
+- Y-Achse: `billingCountry` von public invoice (Rechnungen_Länder genannt)
 - Filter: TopN 5 Länder nach Umsatz
 
 ![Top 5 Länder](./screenshots/top5laender.PNG)
+
+---
+
+### 3. Umsatz pro Mitarbeiter & Genre
+
+- Prüfung ob alle notwendigen JOIN Verbindungen existieren (Modellansicht)
+- SUMX erstellt zur Berechnung von (Preis * Anzahl) um Mitarbeiter Verkäufe pro Genre zu erhalten
+- Diagramm kann für 3.1 und 3.2 genutzt werden
+- Visualisierung: Balkendiagramm (gruppiert)
+
+Diagrammaufbau:
+- X-Achse: `Umsatz` von public invoice_line 
+- Y-Achse: `name` von public genre (Genre genannt)
+- Legende: `last_name` von public employee (Mitarbeiter_Name genannt)
+- Filter: TopN 5 Genres nach Umsatz
+
+![Top Mitarbeiter Umsätze für Top Genres](./mitarbeiter_umsatz_top5_genres.PNG)
 
 ---
 
@@ -73,6 +93,9 @@ SUMMARIZE(
 
 -- 4. Neue Jahr-Spalte für Gruppierung hinzufügen
 Jahr = YEAR('MonatsUmsatz'[JahrMonat])
+
+-- 5. Umsatz Berechnung mit SUMX (Preis * Anzahl) für Nutzung für Mitarbeiter Verkäufe und Verbindung mit Genre
+Umsatz = SUMX('public invoice_line', 'public invoice_line'[unit_price] * 'public invoice_line'[quantity]) 
 ```
 
 ## Datenquelle
@@ -91,17 +114,15 @@ Jahr = YEAR('MonatsUmsatz'[JahrMonat])
 
 ## Learnings
 
-- Verbindung PostgreSQL mit Power BI
+- Nutzung von PostgreSQL und Power BI
 - Aggregationen, Gruppierungen und DAX-Verarbeitung
+- JOIN Verbindungen über Modellansicht per Power BI
 - Visualisierung zeitlicher Entwicklungen
 - Filter- und Sortierlogiken für Business-Analysen
 - Erstellung kleiner Hilfstabellen zur Auswertung
 
 ## Erweiterungsideen
 
-- Vetriebsanalyse nach Mitarbeiter + Genrespezifisch
-    - "„Welche Sales-Mitarbeiter haben den meisten Umsatz betreut?“ 
-    - „Welcher Mitarbeiter verkauft welche Genres am erfolgreichsten?“
 - Top-Produkte je Genre
     - „Was sind die meistverkauften Tracks im Genre Pop?“
 - Umsatzanalyse nach Künstler, Genre oder Album
