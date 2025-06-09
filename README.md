@@ -15,8 +15,7 @@ Die Daten stammen aus einer PostgreSQL-Datenbank (ursprünglich aus der Open Sou
 
 1. **Wie entwickeln sich die Umsätze über die Monate und Jahre hinweg?**
 2. **Welche Länder generieren den höchsten Umsatz (Top 5)?**
-3.1 **Welche Sales-Mitarbeiter haben den meisten Umsatz betreut?** 
-3.2 **Welcher Mitarbeiter verkauft welche Genres am erfolgreichsten?**
+3. **Welche Sales-Mitarbeiter haben den meisten Umsatz betreut?** + **Welcher Mitarbeiter verkauft welche Genres am erfolgreichsten?**
 4. **siehe unter Erweiterungsideen**
 
 ---
