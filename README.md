@@ -76,10 +76,18 @@ Diagrammaufbau:
 ```dax
 
 -- 1. Neue Tabelle mit nur 2 Spalten Land und Gesamtumsatz erstellen
-LänderUmsatz = SUMMARIZE('public invoice', 'public invoice'[billing_country],"Umsatz", SUM('public invoice'[total]))
+LänderUmsatz =
+SUMMARIZE(
+    'public invoice',
+    'public invoice'[billing_country],
+    "Umsatz", SUM('public invoice'[total]))
 
 -- 2. JahrMonat aus Rechnungsdatum erzeugen
-JahrMonat = DATE(YEAR('public invoice'[invoice_date]), MONTH('public invoice'[invoice_date]), 1)
+JahrMonat =
+    DATE(
+    YEAR('public invoice'[invoice_date]),
+    MONTH('public invoice'[invoice_date]), 1
+)
 
 -- 3.. Aggregation: Umsatz pro Monat
 MonatsUmsatz = 
@@ -93,7 +101,12 @@ SUMMARIZE(
 Jahr = YEAR('MonatsUmsatz'[JahrMonat])
 
 -- 5. Umsatz Berechnung mit SUMX (Preis * Anzahl) für Nutzung für Mitarbeiter Verkäufe und Verbindung mit Genre
-Umsatz = SUMX('public invoice_line', 'public invoice_line'[unit_price] * 'public invoice_line'[quantity]) 
+Umsatz =
+SUMX(
+    'public invoice_line',
+    'public invoice_line'[unit_price] * 'public invoice_line'[quantity]
+)
+
 ```
 
 ## Datenquelle
